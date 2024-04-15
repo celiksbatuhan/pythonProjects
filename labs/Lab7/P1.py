@@ -1,9 +1,13 @@
-import os
+"""
+We import the system module from the os library to clear the console screen.
+"""
+
+from os import system
 
 students = {}
 
 while True:
-    os.system("cls")
+    system("cls")
     print(
         """1. Incarcare informatii despre studenti de la tastatura.
 2. Afisare studenti.
@@ -75,7 +79,7 @@ while True:
                         print(f"{id}\t| {info['name']: <21} | {avg_grade:.2f}")
                 input("\n\nPress Enter to continue...")
             case 7:
-                os.system("cls")
+                system("cls")
                 print("CELIK BATUHAN OSMAN - 3114B")
                 input("\n\nPress Enter to continue...")
             case 8:
