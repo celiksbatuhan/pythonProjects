@@ -1,7 +1,3 @@
-"""
-We import the system module from the os library to clear the console screen.
-"""
-
 from os import system
 
 students = {}
