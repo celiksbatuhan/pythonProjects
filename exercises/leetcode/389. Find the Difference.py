@@ -2,7 +2,7 @@ from collections import Counter
 
 
 class Solution:
-    def findTheDifference(self, s: str, t: str):
+    def findTheDifference(self, s: str, t: str) -> str:
         count_s, count_t = Counter(s), Counter(t)
         for i in count_t:
             if i not in count_s:

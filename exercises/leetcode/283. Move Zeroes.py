@@ -8,6 +8,7 @@ class Solution:
 
 
 solution = Solution()
+
 nums = list(map(int, input().split()))
 
 print(solution.moveZeroes(nums))
