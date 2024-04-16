@@ -10,6 +10,7 @@ class Solution:
 
 
 solution = Solution()
+
 s = input()
 
 print(solution.repeatedSubstringPattern(s))

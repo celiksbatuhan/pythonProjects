@@ -1,6 +1,6 @@
 class Solution:
     def mergeAlternately(self, word1: str, word2: str) -> str:
-        merged = ''
+        merged = ""
         len1, len2 = len(word1), len(word2)
         min_len = min(len1, len2)
 
@@ -14,6 +14,7 @@ class Solution:
 
 
 solution = Solution()
+
 word1 = input()
 word2 = input()
 
