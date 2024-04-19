@@ -1,7 +1,7 @@
 from os import system
 
 
-file_path = r"C:\Users\batuh\Desktop\Lab PCLP2\pythonProjects\labs\Lab8\students.txt"
+#file_path = r"C:\Users\batuh\Desktop\Lab PCLP2\pythonProjects\labs\Lab8\students.txt"
 
 students = {}
 
@@ -9,7 +9,7 @@ students = {}
 def load_students():
     system("cls")
     try:
-        with open(file_path, "r") as file:
+        with open("students.txt", "r") as file:
             for line in file:
                 student_data = line.strip().split(",")
                 id, name, grades = (
@@ -36,9 +36,9 @@ def delete_students():
     for number, id in enumerate(students, start=1):
         if id == deleted_student_id:
             deleted_student_line = number
-    with open(file_path, "r") as file:
+    with open("students.txt", "r") as file:
         lines = file.readlines()
-    with open(file_path, "w") as file:
+    with open("students.txt", "w") as file:
         for number, line in enumerate(lines, start=1):
             if number != deleted_student_line:
                 file.write(line)
@@ -47,7 +47,7 @@ def delete_students():
 
 
 def save_students():
-    with open(file_path, "w") as file:
+    with open("students.txt", "w") as file:
         for id, info in students.items():
             if len(info["grades"]) < 5:
                 for i in range(5 - len(info["grades"])):
