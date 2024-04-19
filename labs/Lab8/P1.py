@@ -27,21 +27,10 @@ def load_students():
 
 
 def delete_students():
-    lines = []
-    deleted_student_line = None
     deleted_student_id = int(input("\nEnter the ID: "))
     if deleted_student_id not in students:
         input("\nStudent is not found.")
         return
-    for number, id in enumerate(students, start=1):
-        if id == deleted_student_id:
-            deleted_student_line = number
-    with open(file_path, "r") as file:
-        lines = file.readlines()
-    with open(file_path, "w") as file:
-        for number, line in enumerate(lines, start=1):
-            if number != deleted_student_line:
-                file.write(line)
     students.pop(deleted_student_id)
     input("\nStudent information is deleted from file.")
 
@@ -58,7 +47,7 @@ def save_students():
 
 def print_students():
     print(
-        "\nID\t| STUDENT NAME\t\t| STUDENT GRADES\n-------------------------------------------------"
+        "\nID\t| STUDENT NAME\t\t| STUDENT GRADES\n------------------------------------------------"
     )
     for id, info in students.items():
         grades = ", ".join(map(str, info["grades"]))
@@ -110,7 +99,7 @@ if __name__ == "__main__":
                         print(f"{id}\t| {info['name']}")
                     input("\nPress Enter to continue...")
                 case 5:
-                    print("\nID\t| STUDENT GRADES\n-------------------------")
+                    print("\nID\t| STUDENT GRADES\n------------------------")
                     for id, info in students.items():
                         grades = ", ".join(map(str, info["grades"]))
                         print(f"{id}\t| {grades}")
@@ -125,7 +114,7 @@ if __name__ == "__main__":
                         if info["name"] == student_name:
                             found = True
                             print(
-                                "\nID\t| STUDENT NAME\t\t| STUDENT GRADE\\S\n------------------------------------------------"
+                                "\nID\t| STUDENT NAME\t\t| STUDENT GRADES\n------------------------------------------------"
                             )
                             grades = ", ".join(map(str, info["grades"]))
                             print(f"{id}\t| {info['name']: <21} | {grades}")
