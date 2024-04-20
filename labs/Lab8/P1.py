@@ -46,9 +46,7 @@ def save_students():
 
 
 def print_students():
-    print(
-        "\nID\t| STUDENT NAME\t\t| STUDENT GRADES\n------------------------------------------------"
-    )
+    print(f"\nID\t| STUDENT NAME\t\t| STUDENT GRADES\n{'-'*48}")
     for id, info in students.items():
         grades = ", ".join(map(str, info["grades"]))
         print(f"{id}\t| {info['name']: <21} | {grades}")
@@ -59,21 +57,17 @@ if __name__ == "__main__":
     while True:
         system("cls")
         print(
-            """1. Enter student information from file.
+            """1. Enter student information to file.
 2. Save student information to file.
 3. Delete stundent information from file.
 4. Display students.
-5. Display grades.
-6. Display students and grades.
-7. Search student by name.
-8. Display passed students.
-9. Author info.
-10. Exit.
+5. Search student by name.
+6. Author info.
+7. Exit.
         """
         )
         try:
-            choice = int(input("Enter your choice: "))
-            match choice:
+            match int(input("Enter your choice: ")):
                 case 1:
                     print_students()
                     quantity_students = int(input("\nEnter the quantity of students: "))
@@ -94,47 +88,25 @@ if __name__ == "__main__":
                     print_students()
                     delete_students()
                 case 4:
-                    print("\nID\t| STUDENT NAME\n----------------------")
-                    for id, info in students.items():
-                        print(f"{id}\t| {info['name']}")
-                    input("\nPress Enter to continue...")
-                case 5:
-                    print("\nID\t| STUDENT GRADES\n------------------------")
-                    for id, info in students.items():
-                        grades = ", ".join(map(str, info["grades"]))
-                        print(f"{id}\t| {grades}")
-                    input("\nPress Enter to continue...")
-                case 6:
                     print_students()
                     input("\nPress Enter to continue...")
-                case 7:
+                case 5:
                     student_name = input("\nEnter the student's name: ")
                     found = False
                     for id, info in students.items():
                         if info["name"] == student_name:
                             found = True
-                            print(
-                                "\nID\t| STUDENT NAME\t\t| STUDENT GRADES\n------------------------------------------------"
-                            )
+                            print(f"\nID\t| STUDENT NAME\t\t| STUDENT GRADES\n{'-'*48}")
                             grades = ", ".join(map(str, info["grades"]))
                             print(f"{id}\t| {info['name']: <21} | {grades}")
                     if not found:
                         input("\nStudent not found...")
                         continue
                     input("\nPress Enter to continue...")
-                case 8:
-                    print(
-                        "\nID\t| STUDENT NAME\t\t| AVERAGE\n-----------------------------------------"
-                    )
-                    for id, info in students.items():
-                        avg_grade = sum(info["grades"]) / len(info["grades"])
-                        if avg_grade >= 5.0:
-                            print(f"{id}\t| {info['name']: <21} | {avg_grade:.2f}")
-                    input("\nPress Enter to continue...")
-                case 9:
+                case 6:
                     system("cls")
                     input("CELIK BATUHAN OSMAN - 3114B")
-                case 10:
+                case 7:
                     save_students()
                     system("cls")
                     print("Goodbye...")
