@@ -1,4 +1,3 @@
-from calendar import c
 import subprocess
 
 subprocess.run("cls", shell=True)
